@@ -156,11 +156,11 @@ void incsplit(){
 	//displayLCD("", "S1 1:23:4");
 	char str1[10] = "S0 0:00:0", str2[10] = "S0 0:00:0";
 	inccount();
-	str1[1] = (char)split;
-	str1[3] = (char)count[3];
-	str1[5] = (char)count[2];
-	str1[6] = (char)count[1];
-	str1[8] = (char)count[0];
+	str1[1] = '0'+split;
+	str1[3] = '0'+count[3];
+	str1[5] = '0'+count[2];
+	str1[6] = '0'+count[1];
+	str1[8] = '0'+count[0];
 	strcpy(str2, str1);
 
 	displayLCD(str1, str2);
