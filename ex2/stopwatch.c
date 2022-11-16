@@ -10,7 +10,7 @@
 
 // The period of 50 MHz is 20ns.
 // 20ns * 50M = 1s
-#define TIMER_PERIOD (50000000-1)
+#define TIMER_PERIOD (5000000-1)
 
 // An integer for recording the current split number is recorded.
 int split;
@@ -20,6 +20,9 @@ int split;
 // count[2],count[1]: 00 seconds - 59 seconds
 // count[3]: 0 minutes - 9 minutes
 int count[4];
+
+char str2[10];
+
 
 ////////////////////////////////////////////////////
 // You do not have to modify the following three functions
@@ -40,10 +43,9 @@ int main()
 	/////////////////////////////////////
 	// Initialization
 	/////////////////////////////////////
-	split = 0;
+	split = 1;
 	for(int i = 0 ; i < 4 ; i++)
 		count[i] = 0;
-
 	/////////////////////////////////////
 	// Setup for timer module
 	/////////////////////////////////////
@@ -54,9 +56,7 @@ int main()
 	IOWR_ALTERA_AVALON_TIMER_PERIODL(TIMER_0_BASE, TIMER_PERIOD & 0x0000ffff);
 	IOWR_ALTERA_AVALON_TIMER_PERIODH(TIMER_0_BASE, TIMER_PERIOD >> 16);
 	// Set ITO, CONT flag and START flag to 1
-	IOWR_ALTERA_AVALON_TIMER_CONTROL(TIMER_0_BASE, ALTERA_AVALON_TIMER_CONTROL_ITO_MSK 
-					 | ALTERA_AVALON_TIMER_CONTROL_CONT_MSK 
-					 |ALTERA_AVALON_TIMER_CONTROL_START_MSK );
+	IOWR_ALTERA_AVALON_TIMER_CONTROL(TIMER_0_BASE, ALTERA_AVALON_TIMER_CONTROL_ITO_MSK | ALTERA_AVALON_TIMER_CONTROL_CONT_MSK |ALTERA_AVALON_TIMER_CONTROL_START_MSK );
 
 	/////////////////////////////////////
 	// Setup for KEYs (Push buttons)
@@ -156,16 +156,16 @@ void displayLCD(char *first, char *second){
 void incsplit(){
 
 	//displayLCD("", "S1 1:23:4");
-	char str1[10] = "S0 0:00:0", str2[10] = "S0 0:00:0";
+	char str1[10]="S0 0:00:0";
 	inccount();
 	str1[1] = '0'+split;
 	str1[3] = '0'+count[3];
 	str1[5] = '0'+count[2];
 	str1[6] = '0'+count[1];
 	str1[8] = '0'+count[0];
-	strcpy(str2, str1);
 
-	displayLCD(str1, str2);
+	displayLCD(str2, str1);
+	strcpy(str2, str1);
 	if(split==9)split=0;
 	else split++;
 }
@@ -173,41 +173,42 @@ void incsplit(){
 // counter and split are reset to 0. The display of the character LCD is clear.
 void reset_and_start(){
 
-	displayLCD("","S0 0:00:0");
+	displayLCD("","");
 	count[0]=0;
 	count[1]=0;
 	count[2]=0;
 	count[3]=0;
 	split=0;
-
+	str2[0]='\0';
 }
 
 // count is incremented by 1/10 second every 1/10 second.
 void inccount(){
 	count[0]++;
-	if(count[0]==9){
+	if(count[0]==10){
 		count[0]=0;
 		count[1]++;
-		if(count[1]==9){
+		if(count[1]==10){
 			count[1]=0;
 			count[2]++;
-			if(count[2]==5){
+			if(count[2]==6){
 				count[2]=0;
 				count[3]++;
-				if(count[3]==9){
+				if(count[3]==10){
 					count[3]=0;
 				}
 			}
 		}
+
 	}
 
 	// Reset TO of timer module
 	IOWR_ALTERA_AVALON_TIMER_STATUS(TIMER_0_BASE, 0);
 	// Display the digit of count[1] in HEX1
-    IOWR_8DIRECT(PIO_HEX1_BASE, 0, num2hexsig(count[0]));
+    IOWR_8DIRECT(PIO_HEX0_BASE, 0, num2hexsig(count[0]));
     IOWR_8DIRECT(PIO_HEX1_BASE, 0, num2hexsig(count[1]));
-    IOWR_8DIRECT(PIO_HEX1_BASE, 0, num2hexsig(count[2]));
-    IOWR_8DIRECT(PIO_HEX1_BASE, 0, num2hexsig(count[3]));
+    IOWR_8DIRECT(PIO_HEX2_BASE, 0, num2hexsig(count[2]));
+    IOWR_8DIRECT(PIO_HEX3_BASE, 0, num2hexsig(count[3]));
 
 
 
