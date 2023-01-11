@@ -90,9 +90,10 @@ void filter_image(filter f){
          * After the calculation, apply 16-bit right shift to sum.
          * Absolution and saturation logics are also required.
          */
+			 grayscale_image();
 			 for(int i=0;i<5;i++){
 				 for(int j=0;j<5;j++){
-					 sum += rgb_to_gray(read_pixel(x+i-s, y+j-s))*rgb_to_gray(f[i][j]);
+					 sum += (read_pixel(x+i-s, y+j-s))*rgb_to_gray(f[i][j]);
 				 }
 			 }
 
