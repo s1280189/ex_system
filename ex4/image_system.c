@@ -3,6 +3,7 @@
 #include "sys/alt_stdio.h"
 #include "altera_up_avalon_video_pixel_buffer_dma.h"
 #include <stdlib.h>
+#include <math.h>
 
 // user defined image from gimp (save as c-source, RGB565)
 #include "emblem_25th.c"
@@ -81,7 +82,7 @@ unsigned short int gray_to_rgb(int pin){
 
 void filter_image(filter f){
 	int x,y;
-	int s=2; /* filter_size/2 */
+	int s=5; /* filter_size/2 */
 	for(y=0;y<DISP_Y;++y){
 		  for(x=0;x<DISP_X;++x){
 			  int sum=0;
@@ -90,16 +91,12 @@ void filter_image(filter f){
          * After the calculation, apply 16-bit right shift to sum.
          * Absolution and saturation logics are also required.
          */
-			 grayscale_image();
 			 for(int i=0;i<5;i++){
 				 for(int j=0;j<5;j++){
-					 sum += (read_pixel(x+i-s, y+j-s))*rgb_to_gray(f[i][j]);
+					sum+=rgb_to_gray(get_image(x+i-ceil(s/2), y+j-ceil(s/2)))*(f[i][j]);
 				 }
 			 }
-
-
 			sum=abs(sum);
-
 			 sum=sum>>16;
 
 			 if(sum > 63){
