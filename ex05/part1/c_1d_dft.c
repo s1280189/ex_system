@@ -8,15 +8,19 @@ float complex x[MAX*MAX], y[MAX*MAX], z[MAX*MAX];
 void dft_1d(float complex a[], float complex res[], int length){
   //write code here  
   for(int t=0;t<length;t++){
-    for(int i=0;i<length;i++){
-      res[t]+=a[i]*cexpf((-I*2*t*M_PI*i)/length);
+    for(int x=0;x<length;x++){
+      res[t]+=a[x]*cexpf((-I*2*t*M_PI*x)/length);
     }
   }
 }
 
 
 void idft_1d(float complex a[], float complex res[], int length){
-  //write code here
+  for(int  x=0;x<length;x++){
+    for(int t=0;t<length;t++){
+      res[t]+=a[i]*cexpf((I*2*M_PI*t*x)/length))/length;
+    }
+  }
 }
 
 
