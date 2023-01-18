@@ -53,7 +53,7 @@ int main(){
 
   for(j=0;j<n;j++){
     for(i=0;i<m;i++){
-      printf("%.3f", cabsf(z[j*m+i]));
+      printf("%.3f ", cabsf(z[j*m+i]));
     }
     printf("\n");
   }
