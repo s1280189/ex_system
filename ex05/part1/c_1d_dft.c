@@ -7,6 +7,11 @@ float complex x[MAX*MAX], y[MAX*MAX], z[MAX*MAX];
 
 void dft_1d(float complex a[], float complex res[], int length){
   //write code here  
+  for(int t=0;t<length;t++){
+    for(int i=0;i<length;i++){
+      res[t]+=a[i]*cexpf((-I*2*t*M_PI*i)/length);
+    }
+  }
 }
 
 
