@@ -1,0 +1,4 @@
+114.93 MHz	114.93 MHz	u0|altpll_0|sd1|pll7|clk[0]	
+132.94 MHz	132.94 MHz	altera_reserved_tck	
+162.02 MHz	162.02 MHz	u0|altpll_0|sd1|pll7|clk[2]	
+163.99 MHz	163.99 MHz	CLOCK_50	
