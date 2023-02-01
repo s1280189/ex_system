@@ -1,0 +1,5 @@
+vga_system_qsys:u0|vga_system_qsys_sdram:sdram|vga_system_qsys_sdram_input_efifo_module:the_vga_system_qsys_sdram_input_efifo_module|entry_1[6] 	u0|altpll_0|sd1|pll7|clk[0]	 u0|altpll_0|sd1|pll7|clk[0]	10.000	-0.072	8.647
+vga_system_qsys:u0|vga_system_qsys_sdram:sdram|vga_system_qsys_sdram_input_efifo_module:the_vga_system_qsys_sdram_input_efifo_module|entry_1[7] 	u0|altpll_0|sd1|pll7|clk[0]	 u0|altpll_0|sd1|pll7|clk[0]	10.000	-0.072	8.647
+vga_system_qsys:u0|vga_system_qsys_sdram:sdram|vga_system_qsys_sdram_input_efifo_module:the_vga_system_qsys_sdram_input_efifo_module|entry_1[8] 	u0|altpll_0|sd1|pll7|clk[0]  u0|altpll_0|sd1|pll7|clk[0]	10.000	-0.072	8.647
+vga_system_qsys:u0|vga_system_qsys_sdram:sdram|vga_system_qsys_sdram_input_efifo_module:the_vga_system_qsys_sdram_input_efifo_module|entry_1[9] 	u0|altpll_0|sd1|pll7|clk[0]	 u0|altpll_0|sd1|pll7|clk[0]	10.000	-0.072	8.647
+vga_system_qsys:u0|vga_system_qsys_sdram:sdram|vga_system_qsys_sdram_input_efifo_module:the_vga_system_qsys_sdram_input_efifo_module|entry_1[10]	u0|altpll_0|sd1|pll7|clk[0] 	u0|altpll_0|sd1|pll7|clk[0]	10.000	-0.072	8.647
