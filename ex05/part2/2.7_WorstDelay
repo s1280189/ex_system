@@ -1,0 +1,16 @@
+0.301	vga_system_qsys:u0|vga_system_qsys_nios2:nios2|vga_system_qsys_nios2_cpu:cpu|A_ci_multi_src1[23]	vga_system_qsys:u0|vga_system_qsys_nios2:nios2|vga_system_qsys_nios2_cpu:cpu|A_slow_inst_result[27]
+0.360	vga_system_qsys:u0|vga_system_qsys_nios2:nios2|vga_system_qsys_nios2_cpu:cpu|A_ci_multi_src1[23]	vga_system_qsys:u0|vga_system_qsys_nios2:nios2|vga_system_qsys_nios2_cpu:cpu|A_slow_inst_result[28]
+0.390	vga_system_qsys:u0|vga_system_qsys_nios2:nios2|vga_system_qsys_nios2_cpu:cpu|A_ci_multi_src1[7]	vga_system_qsys:u0|vga_system_qsys_nios2:nios2|vga_system_qsys_nios2_cpu:cpu|A_slow_inst_result[28]
+0.392	vga_system_qsys:u0|vga_system_qsys_nios2:nios2|vga_system_qsys_nios2_cpu:cpu|A_ci_multi_src1[9]	vga_system_qsys:u0|vga_system_qsys_nios2:nios2|vga_system_qsys_nios2_cpu:cpu|A_slow_inst_result[27]
+0.404	vga_system_qsys:u0|vga_system_qsys_nios2:nios2|vga_system_qsys_nios2_cpu:cpu|E_src2[0]	vga_system_qsys:u0|vga_system_qsys_nios2:nios2|vga_system_qsys_nios2_cpu:cpu|E_src1[0]
+
+
+
+
+
+
+u0|altpll_0|sd1|pll7|clk[0]	u0|altpll_0|sd1|pll7|clk[0]	10.000	0.277	9.994
+u0|altpll_0|sd1|pll7|clk[0]	u0|altpll_0|sd1|pll7|clk[0]	10.000	0.270	9.928
+u0|altpll_0|sd1|pll7|clk[0]	u0|altpll_0|sd1|pll7|clk[0]	10.000	0.270	9.898
+u0|altpll_0|sd1|pll7|clk[0]	u0|altpll_0|sd1|pll7|clk[0]	10.000	0.277	9.903
+u0|altpll_0|sd1|pll7|clk[0]	u0|altpll_0|sd1|pll7|clk[0]	10.000	0.072	9.464
